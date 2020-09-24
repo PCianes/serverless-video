@@ -1,0 +1,24 @@
+{
+  "name": "serverless-video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:eu-west-1:367428438232:function:transcode-video --zip-file fileb://Lambda-Deployment.zip",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@cianes.github.com:PCianes/serverless-video.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.759.0"
+  },
+  "devDependencies": {
+    "run-local-lambda": "^1.1.0"
+  }
+}
